@@ -1,0 +1,92 @@
+@import '../../variables.scss';
+
+body {
+  background-color: $bg-light;
+}
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+.jumbo {
+  padding: 60px 60px 0 60px;
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+}
+.tagline {
+  font-size: 50px;
+  font-weight: 900;
+
+  color: #171717;
+
+  span {
+    display: block;
+    margin: -10px;
+    padding: 10px;
+    width: fit-content;
+  }
+}
+.colorblock {
+  clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
+}
+.white {
+  background-color: $white;
+}
+.orange {
+  background-color: $orange;
+}
+.grey {
+  background-color: $bg-light;
+}
+.sub {
+  margin-top: 30px;
+  font-size: 16px;
+}
+
+.image img {
+  width: 500px;
+
+  position: relative;
+  top: -65px;
+
+  margin-bottom: -200px;
+}
+
+.shop {
+  padding: 80px 60px 40px 60px;
+  background-color: $white;
+
+  h1 {
+    font-weight: 900;
+    font-size: 24px;
+  }
+
+  .categories {
+    margin-top: 40px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 30px;
+
+    .card {
+      .card-text {
+        display: flex;
+        justify-content: space-between;
+        p {
+          margin-top: 10px;
+        }
+        .buynow {
+          font-size: 14px;
+          color: $grey;
+        }
+        .right {
+          align-self: center;
+          color: $grey;
+          font-size: 24px;
+        }
+      }
+    }
+  }
+}

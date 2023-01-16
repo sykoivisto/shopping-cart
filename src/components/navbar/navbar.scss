@@ -1,0 +1,28 @@
+@import '../../variables.scss';
+
+.navbar {
+  max-width: 1000px;
+  margin: auto;
+
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+
+  padding: 20px 60px;
+
+  background-color: transparent;
+
+  .logo {
+    font-weight: 900;
+    font-size: 35px;
+    align-self: center;
+
+    a {
+      color: $black;
+
+      text-decoration: none;
+      font-style: italic;
+    }
+  }
+}
