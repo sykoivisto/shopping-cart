@@ -11,7 +11,6 @@ import '@fontsource/roboto/900.css';
 import '@fontsource/roboto/900-italic.css';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import RouteSwitch from './RouteSwitch';
 import Navbar from './components/navbar/Navbar'
 
 const theme = createTheme({
@@ -38,7 +37,6 @@ root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <Navbar></Navbar>
-      <RouteSwitch></RouteSwitch>
     </ThemeProvider>
   </React.StrictMode>
 );
