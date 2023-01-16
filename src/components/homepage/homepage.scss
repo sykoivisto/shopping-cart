@@ -40,17 +40,12 @@ body {
   background-color: $bg-light;
 }
 .sub {
-  margin-top: 30px;
+  margin: 30px 0;
   font-size: 16px;
 }
 
 .image img {
-  width: 500px;
-
-  position: relative;
-  top: -65px;
-
-  margin-bottom: -200px;
+  display: none;
 }
 
 .shop {
@@ -63,10 +58,13 @@ body {
   }
 
   .categories {
-    margin-top: 40px;
+    margin: 40px auto;
 
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+
+    width: 200px;
 
     gap: 30px;
 
@@ -89,4 +87,24 @@ body {
       }
     }
   }
+}
+
+@media screen and (min-width: 800px) {
+  .image img {
+    display: block;
+
+    width: 500px;
+  
+    position: relative;
+    top: -65px;
+  
+    margin-bottom: -200px;
+  }
+  .shop {
+    .categories {
+      margin: 40px 0;
+      flex-direction: row !important;
+    }
+  }
+
 }

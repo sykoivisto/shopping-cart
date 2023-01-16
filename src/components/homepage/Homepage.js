@@ -1,8 +1,6 @@
 import './homepage.scss';
 import jumboImage from '../../jumbo.png';
 
-import { Stack } from '@mui/material';
-
 const Homepage = () => {
   return (
     <div className='main'>
