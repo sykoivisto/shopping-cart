@@ -61,7 +61,6 @@ body {
     margin: 40px auto;
 
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
 
     width: 200px;
@@ -89,11 +88,11 @@ body {
   }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 768px) {
   .image img {
     display: block;
 
-    width: 500px;
+    width: 475px;
   
     position: relative;
     top: -65px;
