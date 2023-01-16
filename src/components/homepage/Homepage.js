@@ -3,10 +3,10 @@ import jumboImage from '../../jumbo.png';
 
 import Navbar from '../navbar/Navbar';
 
-const Homepage = () => {
+function Homepage() {
   return (
     <div>
-      <Navbar></Navbar>
+      <Navbar />
       <div className="main">
         <div className="jumbo">
           <div className="text">
@@ -76,5 +76,5 @@ const Homepage = () => {
       </div>
     </div>
   );
-};
+}
 export default Homepage;
