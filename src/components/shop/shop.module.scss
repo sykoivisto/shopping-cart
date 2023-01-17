@@ -1,0 +1,37 @@
+@import '../../variables.scss';
+
+.main {
+  color: $black;
+  padding: 20px 20px 60px 20px;
+}
+
+.current {
+  margin-top: 5px;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.sort {
+  margin: 40px 0;
+
+  font-size: 24px;
+  font-weight: 500;
+
+  ul li {
+    margin-top: 10px;
+  }
+
+  .categoryNav {
+    text-decoration: none;
+    color: $black
+  }
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 20px;
+
+  justify-content: center;
+}

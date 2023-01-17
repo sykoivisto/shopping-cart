@@ -1,11 +1,13 @@
+import React from 'react';
+
 import './homepage.scss';
 import jumboImage from '../../jumbo.png';
 
 import Navbar from '../navbar/Navbar';
 
-function Homepage() {
+const Homepage = () => {
   return (
-    <div>
+    <div className='body'>
       <Navbar />
       <div className="main">
         <div className="jumbo">
@@ -63,7 +65,7 @@ function Homepage() {
               />
               <div className="card-text">
                 <div className="left">
-                  <p>Computer Parts</p>
+                  <p>Video Cards</p>
                   <p className="buynow">Buy Now!</p>
                 </div>
                 <div className="right">

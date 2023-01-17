@@ -26,7 +26,7 @@ const Navbar = () => {
     >
       <Link to="/">HOME</Link>
       <Link to="/shop">SHOP</Link>
-      <a href="#">CART</a>
+      <p>CART</p>
     </Box>
   );
 
