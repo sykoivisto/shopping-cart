@@ -68,9 +68,13 @@
     gap: 30px;
 
     .card {
-      .card-text {
+      .cardText {
         display: flex;
         justify-content: space-between;
+        .cardTitle {
+          color: $black;
+          font-weight: 500;
+        }
         p {
           margin-top: 10px;
         }

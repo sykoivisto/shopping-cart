@@ -1,13 +1,16 @@
 import React from 'react'
 
-import './itemPreview.scss'
+import { Button } from '@mui/material'
+
+import styles from './itemPreview.module.scss'
 
 const ItemPreview = ({name, price, img}) => {
   return(
-    <div className="item">
+    <div className={styles.item}>
       <img src={img} alt={name} />
-      <p className='name'>{name}</p>
-      <p className='price'>${price}.00</p>
+      <p className={styles.name}>{name}</p>
+      <p className={styles.price}>${price}.00</p>
+      <Button>Add to Cart</Button>
     </div>
   )
 }

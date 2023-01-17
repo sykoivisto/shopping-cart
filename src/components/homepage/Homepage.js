@@ -1,78 +1,85 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Navbar from '../navbar/Navbar';
 
-import './homepage.scss';
+import styles from './homepage.module.scss';
 import jumboImage from '../../jumbo.png';
 
-import Navbar from '../navbar/Navbar';
 
 const Homepage = () => {
   return (
-    <div className='body'>
+    <div className={styles.body}>
       <Navbar />
-      <div className="main">
-        <div className="jumbo">
-          <div className="text">
-            <p className="tagline">
-              <span className="colorblock white">RUGGED</span>
+      <div className={styles.main}>
+        <div className={styles.jumbo}>
+          <div className={styles.text}>
+            <p className={styles.tagline}>
+              <span className={`${styles.colorblock} ${styles.white}`}>RUGGED</span>
               <span>POWER</span>
-              <span className="colorblock orange">ELEGANT</span>
+              <span className={`${styles.colorblock} ${styles.orange}`}>ELEGANT</span>
               <span>DESIGN</span>
             </p>
-            <p className="sub">Find your custom pc now!</p>
+            <p className={styles.sub}>Find your custom pc now!</p>
           </div>
-          <div className="image">
+          <div className={styles.image}>
             <img src={jumboImage} alt="Custom PC" />
           </div>
         </div>
 
-        <div className="shop">
+        <div className={styles.shop}>
           <h1>Shop by Category</h1>
-          <div className="categories">
-            <div className="card">
-              <img
-                src="https://dummyimage.com/200x300/f97316/ffffff"
-                alt="Desktop PC"
-              />
-              <div className="card-text">
-                <div className="left">
-                  <p>Desktop Computers</p>
-                  <p className="buynow">Buy Now!</p>
-                </div>
-                <div className="right">
-                  <span>&rarr;</span>
-                </div>
-              </div>
-            </div>
-            <div className="card">
-              <img
-                src="https://dummyimage.com/200x300/f97316/ffffff"
-                alt="Laptop Computer"
-              />
-              <div className="card-text">
-                <div className="left">
-                  <p>Laptop Computers</p>
-                  <p className="buynow">Buy Now!</p>
-                </div>
-                <div className="right">
-                  <span>&rarr;</span>
+          <div className={styles.categories}>
+            <Link to='/shop/desktops'>
+              <div className={styles.card}>
+                <img
+                  src="https://dummyimage.com/200x300/f97316/ffffff"
+                  alt="Desktop PC"
+                />
+                <div className={styles.cardText}>
+                  <div className={styles.left}>
+                    <p className={styles.cardTitle}>Desktop Computers</p>
+                    <p className={styles.buynow}>Buy Now!</p>
+                  </div>
+                  <div className={styles.right}>
+                    <span>&rarr;</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="card">
-              <img
-                src="https://dummyimage.com/200x300/f97316/ffffff"
-                alt="Computer Parts"
-              />
-              <div className="card-text">
-                <div className="left">
-                  <p>Video Cards</p>
-                  <p className="buynow">Buy Now!</p>
-                </div>
-                <div className="right">
-                  <span>&rarr;</span>
+            </Link>
+            <Link to='/shop/laptops'>
+              <div className={styles.card}>
+                <img
+                  src="https://dummyimage.com/200x300/f97316/ffffff"
+                  alt="Laptop Computer"
+                />
+                <div className={styles.cardText}>
+                  <div className={styles.left}>
+                    <p className={styles.cardTitle}>Laptop Computers</p>
+                    <p className={styles.buynow}>Buy Now!</p>
+                  </div>
+                  <div className={styles.right}>
+                    <span>&rarr;</span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
+            <Link to='/shop/video-cards'>
+              <div className={styles.card}>
+                <img
+                  src="https://dummyimage.com/200x300/f97316/ffffff"
+                  alt="Computer Parts"
+                />
+                <div className={styles.cardText}>
+                  <div className={styles.left}>
+                    <p className={styles.cardTitle}>Video Cards</p>
+                    <p className={styles.buynow}>Buy Now!</p>
+                  </div>
+                  <div className={styles.right}>
+                    <span>&rarr;</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
