@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+import RouteSwitch from './RouteSwitch';
 
 import './index.scss';
 
@@ -9,10 +12,6 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import '@fontsource/roboto/900.css';
 import '@fontsource/roboto/900-italic.css';
-
-import RouteSwitch from './RouteSwitch';
-
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme({
   status: {
@@ -37,7 +36,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <RouteSwitch></RouteSwitch>
+      <RouteSwitch/>
     </ThemeProvider>
   </React.StrictMode>
 );
