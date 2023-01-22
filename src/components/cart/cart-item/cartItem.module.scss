@@ -1,0 +1,50 @@
+@import '../../../variables.scss';
+
+.item {
+  font-weight: 500;
+
+  display: grid;
+  grid-template-columns: 100px 150px;
+
+  gap: 20px;
+
+  * {
+    border: 1px solid red;
+  }
+}
+.imgWrapper {
+  display: flex;
+  img {
+    width: 100px;
+    align-self: center;
+  }
+}
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.itemName {
+  font-weight: 700;
+  font-size: 20px;
+}
+.buttonGroup {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+.button {
+	background: none;
+	color: inherit;
+	border: none;
+	cursor: pointer;
+	outline: inherit;
+  font-size: 30px;
+  font-weight: 300;
+}
+.quantityText {
+  text-align: center;
+  width: 50px;
+  border-radius: 5px;
+  border: 1px solid $grey;
+}

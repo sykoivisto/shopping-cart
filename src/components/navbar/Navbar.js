@@ -45,7 +45,26 @@ const Navbar = () => {
         {links}
       </Drawer>
       <Drawer anchor='right' open={cartState} onClose={toggleDrawer(false, setCartState)}>
-        <Cart/>
+        <Cart onClose={toggleDrawer(false, setCartState)} cartItems={[
+          {
+            item: {
+              name: 'Core i7, RTX 3080',
+              price: 1950,
+              img: 'https://dummyimage.com/200x200/f97316/ffffff',
+              id: 1000
+            },
+            quantity: 1
+          },
+          {
+            item: {
+              name: 'Core i5, RTX 3070',
+              price: 1000,
+              img: 'https://dummyimage.com/200x200/f97316/ffffff',
+              id: 1000
+            },
+            quantity: 1
+          }
+        ]}/>
       </Drawer>
       <div className={styles.links}>
         <Button color="black" variant="text" component={Link} to="/">
