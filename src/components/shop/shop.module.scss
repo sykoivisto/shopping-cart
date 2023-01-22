@@ -1,13 +1,21 @@
 @import '../../variables.scss';
-
+.bodyWrapper {
+  background-color: $white;
+}
 .main {
   color: $black;
   max-width: 1000px;
   margin: auto;
   padding: 20px 60px 60px 60px;
-
 }
+.navbarWrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid $grey;
+}
 .current {
   margin-top: 5px;
   font-size: 30px;
@@ -26,7 +34,7 @@
 
   .categoryNav {
     text-decoration: none;
-    color: $black
+    color: $black;
   }
 }
 

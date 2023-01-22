@@ -9,7 +9,7 @@ const ItemPreview = ({name, price, img}) => {
       <img src={img} alt={name} />
       <p className={styles.name}>{name}</p>
       <p className={styles.price}>${price}.00</p>
-      <Button>Add to Cart</Button>
+      <Button variant='outlined' className={styles.cartButton}>Add to Cart</Button>
     </div>
   )
 }

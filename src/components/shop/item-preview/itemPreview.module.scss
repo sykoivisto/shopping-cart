@@ -1,8 +1,11 @@
 .item {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  display: grid;
+  grid-template-rows: 150px 40px 15px 40px;
+  gap: 15px;
 
+  width: 150px;
+}
+img {
   width: 150px;
 }
 .name {
