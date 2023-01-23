@@ -6,15 +6,6 @@ import styles from './cart.module.scss'
 
 const Cart = ({cartController, onClose, cartItems}) => {
 
-  const getTotal = (array) => {
-    let runningTotal = 0;
-    array.forEach(item => {
-      runningTotal += (item.item.price * item.quantity);
-    });
-    return runningTotal;
-  }
-  const total = getTotal(cartItems);
-
   if (cartItems.length > 0) {
     return (
       <div className={styles.cartContainer}>
@@ -22,11 +13,11 @@ const Cart = ({cartController, onClose, cartItems}) => {
         <p className={styles.title}>Your<br/>Shopping<br/>Cart</p>
         <div className={styles.items}>
           {cartItems.map((item) => {
-            return <CartItem key={item.item.name} item={item.item} quantity={item.quantity}/>
+            return <CartItem key={item.item.name} item={item.item} quantity={item.quantity} cartController={cartController}/>
           })}
         </div>
         <div className={styles.total}>
-          <p>Subtotal: ${total}</p>
+          <p>Subtotal: ${cartItems.reduce((running, x) => running + x.item.price*x.quantity, 0)}</p>
           <Button className={styles.button} variant='outlined'>Checkout</Button>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Drawer } from '@mui/material';
 
@@ -36,7 +36,6 @@ const theme = createTheme({
   },
 });
 
-
 const App = () => {
   const [cartState, setCartState] = useState(false);
   const [cartItems, setCartItems] = useState([
@@ -45,19 +44,10 @@ const App = () => {
         name: 'Core i7, RTX 3080',
         price: 1950,
         img: 'https://dummyimage.com/200x200/f97316/ffffff',
-        id: 1000
+        id: 1000,
       },
-      quantity: 1
+      quantity: 1,
     },
-    {
-      item: {
-        name: 'Core i5, RTX 3070',
-        price: 1000,
-        img: 'https://dummyimage.com/200x200/f97316/ffffff',
-        id: 1000
-      },
-      quantity: 1
-    }
   ]);
 
   const toggleDrawer = (open, callback) => (event) => {
@@ -71,62 +61,66 @@ const App = () => {
   };
 
   const findItemInData = (id) => {
-    return Object.values(itemData).flat().find(item => item.id === id);
-  }
+    return Object.values(itemData)
+      .flat()
+      .find((item) => item.id === id);
+  };
 
   const itemInCart = (id) => {
-    return cartItems.find(item => item.item.id === id);
-  }
+    return cartItems.find((item) => item.item.id === id);
+  };
 
   const addItem = (id) => {
-    setCartItems(cartItems.concat({
-      item: findItemInData(id),
-      quantity: 1
-    }))
-  }
+    setCartItems(
+      cartItems.concat({
+        item: findItemInData(id),
+        quantity: 1,
+      })
+    );
+  };
 
-  const deleteItem = (search) => {
-    setCartItems(cartItems.filter((item) => {
-      return item.item.id !== search.id;
-    }))
-  }
+  const deleteItem = (id) => {
+    setCartItems(
+      cartItems.filter((item) => {
+        return item.item.id !== id;
+      })
+    );
+  };
 
-  const incrementQuantity = (search) => {
-    const tCartItems = cartItems;
-
-    // eslint-disable-next-line
-    tCartItems.find((item, i) => {
-      if (item.item.id === search.id) {
-        tCartItems[i].quantity += 1;
-        return true;
-      }
-    })
-
-    setCartItems(tCartItems);
-  }
-
-  const decrementQuantity = (search) => {
-    const tCartItems = cartItems;
+  const updateQuantity = (id, newQuantity) => {
+    const tCartItems = [...cartItems];
 
     // eslint-disable-next-line
     tCartItems.find((item, i) => {
-      if (item.item.id === search.id) {
-        tCartItems[i].quantity -= 1;
+      if (item.item.id === id) {
+        tCartItems[i].quantity = newQuantity;
         return true;
       }
-    })
+    });
 
     setCartItems(tCartItems);
-  }
+  };
 
   return (
     <ThemeProvider theme={theme}>
-      <RouteSwitch cartController={{itemInCart, addItem, deleteItem, incrementQuantity, decrementQuantity}} onClickCart={toggleDrawer(true, setCartState)}/>
-      <Drawer anchor='right' open={cartState} onClose={toggleDrawer(false, setCartState)}>
-        <Cart cartController={{itemInCart, addItem, deleteItem, incrementQuantity, decrementQuantity}} onClose={toggleDrawer(false, setCartState)} cartItems={cartItems}/>
+      <RouteSwitch
+        cartController={{ itemInCart, addItem, deleteItem, updateQuantity }}
+        onClickCart={toggleDrawer(true, setCartState)}
+      />
+      <Drawer
+        anchor="right"
+        open={cartState}
+        onClose={toggleDrawer(false, setCartState)}
+      >
+        <Cart
+          key={cartItems}
+          cartController={{ itemInCart, addItem, deleteItem, updateQuantity }}
+          onClose={toggleDrawer(false, setCartState)}
+          cartItems={cartItems}
+        />
       </Drawer>
     </ThemeProvider>
-  )
-}
+  );
+};
 
 export default App;
