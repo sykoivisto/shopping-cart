@@ -4,7 +4,7 @@ import CartItem from './cart-item/CartItem'
 
 import styles from './cart.module.scss'
 
-const Cart = ({onClose, cartItems}) => {
+const Cart = ({cartController, onClose, cartItems}) => {
 
   const getTotal = (array) => {
     let runningTotal = 0;

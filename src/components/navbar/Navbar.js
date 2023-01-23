@@ -2,13 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Button, Drawer } from '@mui/material';
 
-import Cart from '../cart/Cart';
-
 import styles from './navbar.module.scss';
 
-const Navbar = () => {
+const Navbar = ({onClickCart}) => {
   const [menuState, setMenuState] = useState(false);
-  const [cartState, setCartState] = useState(false);
 
   const toggleDrawer = (open, callback) => (event) => {
     if (
@@ -29,7 +26,7 @@ const Navbar = () => {
     >
       <Link to="/">HOME</Link>
       <Link to="/shop">SHOP</Link>
-      <button type='button' onClick={toggleDrawer(true, setCartState)}>CART</button>
+      <button type='button' onClick={onClickCart}>CART</button>
     </Box>
   );
 
@@ -44,28 +41,6 @@ const Navbar = () => {
       <Drawer anchor="top" open={menuState} onClose={toggleDrawer(false, setMenuState)}>
         {links}
       </Drawer>
-      <Drawer anchor='right' open={cartState} onClose={toggleDrawer(false, setCartState)}>
-        <Cart onClose={toggleDrawer(false, setCartState)} cartItems={[
-          {
-            item: {
-              name: 'Core i7, RTX 3080',
-              price: 1950,
-              img: 'https://dummyimage.com/200x200/f97316/ffffff',
-              id: 1000
-            },
-            quantity: 1
-          },
-          {
-            item: {
-              name: 'Core i5, RTX 3070',
-              price: 1000,
-              img: 'https://dummyimage.com/200x200/f97316/ffffff',
-              id: 1000
-            },
-            quantity: 1
-          }
-        ]}/>
-      </Drawer>
       <div className={styles.links}>
         <Button color="black" variant="text" component={Link} to="/">
           HOME
@@ -73,7 +48,7 @@ const Navbar = () => {
         <Button color="black" variant="text" component={Link} to="/shop">
           SHOP
         </Button>
-        <Button color="black" variant="text" onClick={toggleDrawer(true, setCartState)}>
+        <Button color="black" variant="text" onClick={onClickCart}>
           CART
         </Button>
       </div>

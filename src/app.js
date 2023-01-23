@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Drawer } from '@mui/material';
+
+import Cart from './components/cart/Cart';
 
 import RouteSwitch from './RouteSwitch';
+
+import itemData from './data/itemData';
 
 import './index.scss';
 
@@ -33,15 +38,49 @@ const theme = createTheme({
 
 
 const App = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartState, setCartState] = useState(false);
+  const [cartItems, setCartItems] = useState([
+    {
+      item: {
+        name: 'Core i7, RTX 3080',
+        price: 1950,
+        img: 'https://dummyimage.com/200x200/f97316/ffffff',
+        id: 1000
+      },
+      quantity: 1
+    },
+    {
+      item: {
+        name: 'Core i5, RTX 3070',
+        price: 1000,
+        img: 'https://dummyimage.com/200x200/f97316/ffffff',
+        id: 1000
+      },
+      quantity: 1
+    }
+  ]);
 
-  const itemInCart = (search) => {
-    return cartItems.find(item => item.item.id === search.id);
+  const toggleDrawer = (open, callback) => (event) => {
+    if (
+      event.type === 'keydown' &&
+      (event.key === 'Tab' || event.key === 'Shift')
+    ) {
+      return;
+    }
+    callback(open);
+  };
+
+  const findItemInData = (id) => {
+    return Object.values(itemData).flat().find(item => item.id === id);
   }
 
-  const addItem = (newItem) => {
+  const itemInCart = (id) => {
+    return cartItems.find(item => item.item.id === id);
+  }
+
+  const addItem = (id) => {
     setCartItems(cartItems.concat({
-      item: newItem,
+      item: findItemInData(id),
       quantity: 1
     }))
   }
@@ -82,7 +121,10 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <RouteSwitch/>
+      <RouteSwitch cartController={{itemInCart, addItem, deleteItem, incrementQuantity, decrementQuantity}} onClickCart={toggleDrawer(true, setCartState)}/>
+      <Drawer anchor='right' open={cartState} onClose={toggleDrawer(false, setCartState)}>
+        <Cart cartController={{itemInCart, addItem, deleteItem, incrementQuantity, decrementQuantity}} onClose={toggleDrawer(false, setCartState)} cartItems={cartItems}/>
+      </Drawer>
     </ThemeProvider>
   )
 }

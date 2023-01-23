@@ -7,10 +7,10 @@ import styles from './homepage.module.scss';
 import jumboImage from '../../jumbo.png';
 
 
-const Homepage = () => {
+const Homepage = ({onClickCart}) => {
   return (
     <div className={styles.body}>
-      <Navbar />
+      <Navbar onClickCart={onClickCart} />
       <div className={styles.main}>
         <div className={styles.jumbo}>
           <div className={styles.text}>

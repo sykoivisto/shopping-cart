@@ -8,7 +8,7 @@ import itemData from '../../data/itemData';
 
 import styles from './shop.module.scss';
 
-const Shop = () => {
+const Shop = ({cartController, onClickCart}) => {
   const { category } = useParams();
   const [categoryText, setCategoryText] = useState('All Products');
   const [displayedItems, setDisplayedItems] = useState([
@@ -46,7 +46,7 @@ const Shop = () => {
   return (
     <div className={styles.bodyWrapper}>
       <div className={styles.navbarWrapper}>
-        <Navbar />
+        <Navbar onClickCart={onClickCart} />
       </div>
       <div className={styles.main}>
         <div className={styles.breadcrumb}>
@@ -85,6 +85,9 @@ const Shop = () => {
                 name={item.name}
                 price={item.price}
                 img={item.img}
+                id={item.id}
+                cartController={cartController}
+                onClickCart={onClickCart}
               />
             );
           })}
