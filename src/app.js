@@ -38,17 +38,7 @@ const theme = createTheme({
 
 const App = () => {
   const [cartState, setCartState] = useState(false);
-  const [cartItems, setCartItems] = useState([
-    {
-      item: {
-        name: 'Core i7, RTX 3080',
-        price: 1950,
-        img: 'https://dummyimage.com/200x200/f97316/ffffff',
-        id: 1000,
-      },
-      quantity: 1,
-    },
-  ]);
+  const [cartItems, setCartItems] = useState([]);
 
   const toggleDrawer = (open, callback) => (event) => {
     if (

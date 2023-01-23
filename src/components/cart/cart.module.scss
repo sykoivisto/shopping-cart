@@ -1,6 +1,8 @@
 .cartContainer {
   padding: 60px 20px;
 
+  width: 310px;
+
   .closeButton {
       background: none;
       color: inherit;
@@ -39,4 +41,6 @@
     }
   }
 }
-
+.emptyCart {
+  margin-top: 40px;
+}

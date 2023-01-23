@@ -25,7 +25,11 @@ const Cart = ({cartController, onClose, cartItems}) => {
   }
   return (
     <div>
-      Nothing in the Cart
+      <div className={styles.cartContainer}>
+        <button className={styles.closeButton} type='button' onClick={onClose}>x</button>
+        <p className={styles.title}>Your<br/>Shopping<br/>Cart</p>
+        <p className={styles.emptyCart}>Your Cart is Empty!</p>
+      </div>
     </div>
   )
 }
