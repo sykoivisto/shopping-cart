@@ -8,6 +8,16 @@ import jumboImage from '../../jumbo.png';
 
 
 const Homepage = ({onClickCart}) => {
+
+  const onHoverHandler = (e, className) => {
+
+    if (className) {
+      e.target.className = styles.imageHover;
+    } else {
+      e.target.className = '';
+    }
+  }
+
   return (
     <div className={styles.body}>
       <Navbar onClickCart={onClickCart} />
@@ -32,10 +42,14 @@ const Homepage = ({onClickCart}) => {
           <div className={styles.categories}>
             <Link to='/shop/desktops'>
               <div className={styles.card}>
-                <img
-                  src="https://dummyimage.com/200x300/f97316/ffffff"
-                  alt="Desktop PC"
-                />
+                <div className={styles.imgWrapper}>
+                  <img
+                    src={`${process.env.PUBLIC_URL}/img/desktop.jpg`}
+                    alt="Gamer playing on a desktop PC"
+                    onMouseEnter={(e) => onHoverHandler(e, true)}
+                    onMouseLeave={(e) => onHoverHandler(e, false)}
+                  />
+                </div>
                 <div className={styles.cardText}>
                   <div className={styles.left}>
                     <p className={styles.cardTitle}>Desktop Computers</p>
@@ -49,10 +63,14 @@ const Homepage = ({onClickCart}) => {
             </Link>
             <Link to='/shop/laptops'>
               <div className={styles.card}>
-                <img
-                  src="https://dummyimage.com/200x300/f97316/ffffff"
-                  alt="Laptop Computer"
-                />
+                <div className={styles.imgWrapper}>
+                  <img
+                    src={`${process.env.PUBLIC_URL}/img/laptop.jpg`}
+                    alt="Gamer playing on a laptop computer"
+                    onMouseEnter={(e) => onHoverHandler(e, true)}
+                    onMouseLeave={(e) => onHoverHandler(e, false)}
+                  />
+                </div>
                 <div className={styles.cardText}>
                   <div className={styles.left}>
                     <p className={styles.cardTitle}>Laptop Computers</p>
@@ -66,10 +84,14 @@ const Homepage = ({onClickCart}) => {
             </Link>
             <Link to='/shop/video-cards'>
               <div className={styles.card}>
-                <img
-                  src="https://dummyimage.com/200x300/f97316/ffffff"
-                  alt="Computer Parts"
-                />
+                <div className={styles.imgWrapper}>
+                  <img
+                    src={`${process.env.PUBLIC_URL}/img/video-card.jpg`}
+                    onMouseEnter={(e) => onHoverHandler(e, true)}
+                    onMouseLeave={(e) => onHoverHandler(e, false)}
+                    alt="Woman holding a video card"
+                  />
+                </div>
                 <div className={styles.cardText}>
                   <div className={styles.left}>
                     <p className={styles.cardTitle}>Video Cards</p>

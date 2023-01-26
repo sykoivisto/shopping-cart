@@ -5,8 +5,11 @@
 
   width: 150px;
 }
-img {
+.img {
   width: 150px;
+  height: 150px;
+  object-fit: cover;
+  transition: .5s all ease-in-out;
 }
 .name {
   font-size: 20px;
@@ -19,4 +22,14 @@ img {
 .cartButton {
   position: relative;
   z-index: 10;
+}
+.imgWrapper {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.imgHover {
+  scale: 1.05;
+  transition: .5s all ease-in-out;
 }
